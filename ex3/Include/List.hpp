@@ -18,12 +18,11 @@ struct Node
 class List
 {
 public:
-    List();
-//    ~List();
     List(const std::vector<Rational>&);
     List(const Rational);
     List(const int);
     List(const unsigned int, const Rational);
+    ~List();
     void insert(const unsigned int, const Rational);
     void print();
     

@@ -79,4 +79,14 @@ void List::print()
     }
     std::cout<< "\nend of polynomial\n";
 }
-
+//___________
+List::~List()
+{
+    Node* p1 = m_head, *p2;
+    for(int i=0; i<m_size; i++)
+    {
+        p2 = p1;
+        p1 = p1->m_next;
+        delete (p2);
+    }
+}
