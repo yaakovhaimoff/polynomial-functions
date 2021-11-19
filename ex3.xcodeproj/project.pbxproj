@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		75F0902D2744F3FB00E0890E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75F0902C2744F3FB00E0890E /* main.cpp */; };
+		75F090352745077500E0890E /* Poly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75F090332745077500E0890E /* Poly.cpp */; };
+		75F09038274507A800E0890E /* Rational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75F09036274507A800E0890E /* Rational.cpp */; };
+		75F0903D2746860000E0890E /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75F0903B2746860000E0890E /* List.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		75F090292744F3FB00E0890E /* ex3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ex3; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F0902C2744F3FB00E0890E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		75F090332745077500E0890E /* Poly.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Poly.cpp; sourceTree = "<group>"; };
+		75F090342745077500E0890E /* Poly.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Poly.hpp; sourceTree = "<group>"; };
+		75F09036274507A800E0890E /* Rational.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rational.cpp; sourceTree = "<group>"; };
+		75F09037274507A800E0890E /* Rational.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rational.hpp; sourceTree = "<group>"; };
+		75F0903B2746860000E0890E /* List.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
+		75F0903C2746860000E0890E /* List.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +66,31 @@
 		75F0902B2744F3FB00E0890E /* ex3 */ = {
 			isa = PBXGroup;
 			children = (
-				75F0902C2744F3FB00E0890E /* main.cpp */,
+				75F0903A274507E700E0890E /* src */,
+				75F09039274507D400E0890E /* Include */,
 			);
 			path = ex3;
+			sourceTree = "<group>";
+		};
+		75F09039274507D400E0890E /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				75F090342745077500E0890E /* Poly.hpp */,
+				75F09037274507A800E0890E /* Rational.hpp */,
+				75F0903C2746860000E0890E /* List.hpp */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		75F0903A274507E700E0890E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				75F090332745077500E0890E /* Poly.cpp */,
+				75F09036274507A800E0890E /* Rational.cpp */,
+				75F0902C2744F3FB00E0890E /* main.cpp */,
+				75F0903B2746860000E0890E /* List.cpp */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				75F0902D2744F3FB00E0890E /* main.cpp in Sources */,
+				75F0903D2746860000E0890E /* List.cpp in Sources */,
+				75F09038274507A800E0890E /* Rational.cpp in Sources */,
+				75F090352745077500E0890E /* Poly.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
