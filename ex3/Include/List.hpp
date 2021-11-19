@@ -19,17 +19,21 @@ class List
 {
 public:
     List();
-    ~List();
-    void insertPolynomial(const std::vector<Rational>&);
-    void insertRational(const Rational);
-    void insertSkalar(const int);
-    void insertMonomial(const unsigned int, const Rational);
+//    ~List();
+    List(const std::vector<Rational>&);
+    List(const Rational);
+    List(const int);
+    List(const unsigned int, const Rational);
     void insert(const unsigned int, const Rational);
     void print();
     
     
     
 private:
-    Node *m_head;
+    Node *m_head,
+    *m_mid,
+    *m_temp;
+    int m_size;
+    
     
 };

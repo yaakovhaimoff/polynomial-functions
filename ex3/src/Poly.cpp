@@ -2,26 +2,22 @@
 
 //_________________________________________________
 Poly::Poly(const std::vector<Rational>& polynomial)
-{
-    m_polyHead->insertPolynomial(polynomial);
-}
+: m_polyHead(polynomial)
+{}
 //___________________________
 Poly::Poly(Rational rational)
-{
-    m_polyHead->insertRational(rational);
-}
+: m_polyHead(rational)
+{}
 //____________________
 Poly::Poly(int skalar)
-{
-    m_polyHead->insertSkalar(skalar);
-}
+: m_polyHead(skalar)
+{}
 //________________________________
 Poly::Poly(int deg, Rational monomial)
-{
-    m_polyHead->insertMonomial(deg, monomial);
-}
+: m_polyHead(deg, monomial)
+{}
 //____________________
 void Poly::printPoly()
 {
-    m_polyHead->print();
+    m_polyHead.print();
 }

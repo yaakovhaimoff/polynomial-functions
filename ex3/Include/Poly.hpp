@@ -15,6 +15,6 @@ public:
     void printPoly();
     
 private:
-    List *m_polyHead;
+    List m_polyHead;
     
 };
