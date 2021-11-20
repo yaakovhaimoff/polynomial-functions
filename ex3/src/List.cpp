@@ -15,20 +15,6 @@ m_temp(nullptr), m_size(0)
         this->insert(((unsigned int)polynomial.size()-i-1), polynomial[i]);
     }
 }
-//________________________________________________
-List::List(const Rational rational)
-: m_head(nullptr),m_size(0)
-{
-    m_head = new Node(0, Rational(0,1), m_head);
-    m_size++;
-}
-//_______________________________________
-List::List(const int skalar)
-: m_head(nullptr),m_size(0)
-{
-    m_head = new Node(0, Rational(skalar,1), m_head);
-    m_size++;
-}
 //________________________________________________________________________
 List::List(const unsigned int deg, const Rational rational)
 : m_head(nullptr),m_size(0)
