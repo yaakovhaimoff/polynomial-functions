@@ -5,7 +5,7 @@ Node::Node(const unsigned int deg, const Rational rational, Node* next)
 : m_deg(deg), m_rational(rational), m_next(next)
 {}
 
-//__________________________________________________________________
+//_________________________________________________
 List::List(const std::vector<Rational>& polynomial)
 : m_head(nullptr), m_mid(nullptr),
 m_temp(nullptr), m_size(0)
@@ -15,7 +15,7 @@ m_temp(nullptr), m_size(0)
         this->insert(((unsigned int)polynomial.size()-i-1), polynomial[i]);
     }
 }
-//________________________________________________________________________
+//_________________________________________________________
 List::List(const unsigned int deg, const Rational rational)
 : m_head(nullptr),m_size(0)
 {
@@ -54,6 +54,21 @@ void List::insert(const unsigned int deg, const Rational rational)
     //  counting the nodes
     if(rational.getNummerator()!=0)
         m_size++;
+}
+//_____________________
+int List::getDeg()const
+{
+    return this->m_head->m_deg;
+}
+//______________________
+int List::getSize()const
+{
+    return this->m_size;
+}
+//___________________
+Node* List::getNext()
+{
+    return this->m_head->m_next;
 }
 //________________
 void List::print()

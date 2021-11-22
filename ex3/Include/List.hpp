@@ -7,6 +7,7 @@
 
 struct Node
 {
+
     Node(const unsigned int, const Rational, Node*);
     unsigned int m_deg;
     Rational m_rational;
@@ -22,8 +23,10 @@ public:
     List(const unsigned int, const Rational);
     ~List();
     void insert(const unsigned int, const Rational);
+    int getDeg()const;
+    int getSize()const;
+    Node *getNext();
     void print();
-    
     
     
 private:
