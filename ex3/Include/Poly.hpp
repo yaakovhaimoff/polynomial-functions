@@ -16,12 +16,14 @@ public:
     void printPoly();
     int getDegPol()const;
     int getSizePol()const;
-    
+    Node* getNextPol();
+    Poly operator=(const Poly&);
     
     
 private:
     List m_polyHead;
     
 };
+
 
 Poly operator+(const Poly&, const Poly&);

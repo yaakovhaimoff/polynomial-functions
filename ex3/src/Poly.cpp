@@ -32,20 +32,45 @@ int Poly::getSizePol()const
 {
     return this->m_polyHead.getSize();
 }
+//___________________
+Node* Poly::getNextPol()
+{
+    return this->m_polyHead.getNext();
+}
+////_____________________________
+//Poly Poly::operator=(const Poly& pol)
+//{
+//    if(this!=&pol)
+//    {
+//        pol.m_polyHead=
+//    }
+//    return *this;
+//}
 //_______________________________________________
 Poly operator+(const Poly& pol1, const Poly& pol2)
 {
     Poly newPol;
-        int size = std::min(pol1.getSizePol(), pol2.getSizePol());
+    int size = std::min(pol1.getSizePol(), pol2.getSizePol());
     while(size>0)
     {
         if(pol1.getDegPol() == pol2.getDegPol())
         {
-            newPol = Poly(pol1.getDegPol());
+            // add both to newPol
+            // add both rational, and take one deg
+            // forward both
+        }
+        else if(pol1.getDegPol() > pol2.getDegPol())
+        {
+            
+            // add only pol1
+            // add pol1 rational, and take pol1 deg
+            // forward pol1
         }
         else
         {
-            newPol = Poly(pol2.getDegPol());
+            // add only pol2
+            // add pol2 rational, and take pol2 deg
+            // forward pol2
         }
     }
     

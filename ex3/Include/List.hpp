@@ -8,7 +8,7 @@
 struct Node
 {
 
-    Node(const unsigned int, const Rational, Node*);
+    Node(const unsigned int, const Rational, Node*, Node*);
     unsigned int m_deg;
     Rational m_rational;
     Node *m_next,
@@ -19,6 +19,7 @@ struct Node
 class List
 {
 public:
+    List();
     List(const std::vector<Rational>&);
     List(const unsigned int, const Rational);
     ~List();
@@ -27,13 +28,12 @@ public:
     int getSize()const;
     Node *getNext();
     void print();
+    List &operator=(const List&);
     
     
 private:
-    Node *m_head,
-    *m_mid,
-    *m_temp;
-    int m_size;
-    
+    Node *m_head;
     
 };
+
+
