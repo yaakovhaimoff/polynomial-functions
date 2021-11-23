@@ -2,19 +2,22 @@
 
 //_________________________________________________
 Poly::Poly(const std::vector<Rational>& polynomial)
-: m_polyHead(polynomial)
+: m_polyHead(polynomial), m_size(int(polynomial.size()))
 {}
-//___________________________
+//__________
 Poly::Poly()
-: m_polyHead(0, Rational(0,1))
+: m_polyHead(0, Rational(0,1)),
+m_size(1)
 {}
 //____________________
 Poly::Poly(int skalar)
-: m_polyHead(0, Rational(skalar,1))
+: m_polyHead(0, Rational(skalar,1)),
+m_size(1)
 {}
-//________________________________
+//____________________________________
 Poly::Poly(int deg, Rational monomial)
-: m_polyHead(deg, monomial)
+: m_polyHead(deg, monomial),
+m_size(1)
 {}
 //____________________
 void Poly::printPoly()
@@ -24,55 +27,33 @@ void Poly::printPoly()
 //________________________
 int Poly::getDegPol()const
 {
-    return this->m_polyHead.getDeg() > 0 ? this->m_polyHead.getDeg() :
-    -1;
+    return this->getSizePol()-1;
 }
-//_________________________
-int Poly::getSizePol()const
+//___________________________
+Node* Poly::getHeadPol()const
 {
-    return this->m_polyHead.getSize();
+    return m_polyHead.getHeadList();
 }
-//___________________
-Node* Poly::getNextPol()
-{
-    return this->m_polyHead.getNext();
-}
-////_____________________________
-//Poly Poly::operator=(const Poly& pol)
-//{
-//    if(this!=&pol)
-//    {
-//        pol.m_polyHead=
-//    }
-//    return *this;
-//}
-//_______________________________________________
+//________________________________________________
 Poly operator+(const Poly& pol1, const Poly& pol2)
 {
-    Poly newPol;
-    int size = std::min(pol1.getSizePol(), pol2.getSizePol());
-    while(size>0)
-    {
-        if(pol1.getDegPol() == pol2.getDegPol())
-        {
-            // add both to newPol
-            // add both rational, and take one deg
-            // forward both
-        }
-        else if(pol1.getDegPol() > pol2.getDegPol())
-        {
-            
-            // add only pol1
-            // add pol1 rational, and take pol1 deg
-            // forward pol1
-        }
-        else
-        {
-            // add only pol2
-            // add pol2 rational, and take pol2 deg
-            // forward pol2
-        }
-    }
+    auto temp1 = pol1.getHeadPol();
+    auto temp2 = pol2.getHeadPol();
     
-    return newPol;
+    int size = std::max(temp1->m_deg, temp2->m_deg)+1;
+    std::vector<Rational>newPol(size, 0);
+    
+    while(temp1 != nullptr || temp2 != nullptr)
+    {
+        if(temp1!=nullptr)
+            newPol[size-temp1->m_deg-1] = temp1->m_rational;
+        if(temp2!=nullptr)
+            newPol[size-temp2->m_deg-1] += temp2->m_rational;
+        
+        if(temp1!=nullptr)
+            temp1=temp1->m_next;
+        if(temp2!=nullptr)
+            temp2=temp2->m_next;
+    }
+    return Poly(newPol);
 }

@@ -6,6 +6,7 @@ Node::Node(const unsigned int deg, const Rational rational,
 : m_deg(deg), m_rational(rational), m_next(next), m_prev(prev)
 {}
 
+
 //_________________________________________________
 List::List(const std::vector<Rational>& polynomial)
 : m_head(nullptr)
@@ -19,16 +20,23 @@ List::List(const std::vector<Rational>& polynomial)
 List::List(const unsigned int deg, const Rational rational)
 : m_head(nullptr)
 {
-    m_head = new Node(deg, rational, nullptr, nullptr);
+    this->insert(deg, rational);
+}
+//___________________________
+List::List(const List &other)
+: m_head(nullptr)
+{
+    std::cout << "copy ctor\n";
+    this->copyList(other);
 }
 //________________________________________________________________
 void List::insert(const unsigned int deg, const Rational rational)
 {
     Node *newNode = new Node(deg, rational, nullptr, nullptr);
     
-    if(m_head==nullptr)
+    if(m_head==nullptr && rational.getNummerator()!=0)
         m_head = newNode;
-    else
+    else if(rational.getNummerator()!=0)
     {
         Node* temp = m_head;
         while(temp->m_next!=nullptr)
@@ -43,20 +51,15 @@ int List::getDeg()const
 {
     return this->m_head->m_deg;
 }
-//______________________
-int List::getSize()const
+//____________________________
+Node* List::getHeadList()const
 {
-    int count = 0;
-    for(Node* temp = this->m_head; temp!=nullptr; temp=temp->m_next)
-    {
-        count++;
-    }
-    return count;
+    return this->m_head;
 }
-//___________________
-Node* List::getNext()
+//___________________________________
+Rational List::getRationalList()const
 {
-    return this->m_head->m_next;
+    return this->m_head->m_rational;
 }
 //________________
 void List::print()
@@ -70,24 +73,43 @@ void List::print()
 //___________
 List::~List()
 {
+    deleteList();
+}
+//____________________________________
+void List::copyList(const List& other)
+{
+    Node* temp = other.m_head;
+    this->deleteList();
+    m_head = nullptr;
+    while(temp!=nullptr)
+    {
+        this->insert(temp->m_deg, temp->m_rational);
+        temp=temp->m_next;
+    }
+}
+//_____________________
+void List::deleteList()
+{
+    std::cout << "deleteList called\n";
     Node* p1 = m_head, *p2;
-    while(p1->m_next!=nullptr)
+    while(p1!=nullptr)
     {
         p2 = p1;
         p1 = p1->m_next;
         delete (p2);
     }
 }
-////______________________________________
-//List &List::operator=(const List& list1)
-//{
-//    std::cout << "operator= called\n";
-//
-//    if ( &list1 != this ) // avoid self assignment
-//    {
-//        delete [] m_head;              // prevents memory leak
-//        m_head = list1.m_head;
-//        m_size = list1.m_size;
-//    }
-//    return *this;
-//}
+//______________________________________
+List &List::operator=(const List& list1)
+{
+    std::cout << "operator= called\n";
+                                                        
+    if ( &list1 != this )       // avoid self assignment
+    {
+        // prevents memory leak
+        this->copyList(list1);
+    }
+    return *this;
+}
+
+

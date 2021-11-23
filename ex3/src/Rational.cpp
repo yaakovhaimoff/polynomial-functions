@@ -133,7 +133,7 @@ bool operator>=(Rational& rational1,
 {
     return !(rational1 < rational2);
 }
-////___________________________________________________________
+//___________________________________________________________
 ostream &operator<<(ostream& ouput, const Rational& rational)
 {
     ouput << rational.getNummerator()<< "/" << rational.getDenominator();
