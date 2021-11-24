@@ -13,17 +13,22 @@ public:
     Poly();                             // default polynomial
     Poly(int);                          // skalar polynomial
     Poly(int, Rational);                // monomial polynomial
-    void printPoly();
+    void printPoly()const;
     int getDegPol()const;
-    int getSizePol()const;
     Node *getHeadPol()const;
-//    Poly &operator=(const Poly&);
-    
     
 private:
     List m_polyHead;
     int m_size;
-    
 };
 
 Poly operator+(const Poly&, const Poly&);
+Poly operator-(const Poly&, const Poly&);
+Poly operator-(const Poly&);
+Poly &operator+=(Poly&, Poly&);
+Poly operator-=(Poly&, Poly&);
+Poly operator*(Poly&, Poly&);
+Poly operator*=(Poly&, Poly&);
+bool operator==(Poly&, Poly&);
+
+ostream &operator<<(ostream&, const Poly&);

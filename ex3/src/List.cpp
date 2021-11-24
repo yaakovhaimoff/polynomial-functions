@@ -1,9 +1,8 @@
 #include "List.hpp"
 
 //_____________________________________________________________________
-Node::Node(const unsigned int deg, const Rational rational,
-           Node* next, Node* prev)
-: m_deg(deg), m_rational(rational), m_next(next), m_prev(prev)
+Node::Node(const unsigned int deg, const Rational rational,Node* next)
+: m_deg(deg), m_rational(rational), m_next(next)
 {}
 
 
@@ -26,15 +25,16 @@ List::List(const unsigned int deg, const Rational rational)
 List::List(const List &other)
 : m_head(nullptr)
 {
-    std::cout << "copy ctor\n";
     this->copyList(other);
 }
 //________________________________________________________________
 void List::insert(const unsigned int deg, const Rational rational)
 {
-    Node *newNode = new Node(deg, rational, nullptr, nullptr);
+    Node *newNode = new Node(deg, rational, nullptr);
     
     if(m_head==nullptr && rational.getNummerator()!=0)
+        m_head = newNode;
+    else if(m_head==nullptr)
         m_head = newNode;
     else if(rational.getNummerator()!=0)
     {
@@ -43,7 +43,6 @@ void List::insert(const unsigned int deg, const Rational rational)
             temp = temp->m_next;
         
         temp->m_next = newNode;
-        newNode->m_prev = temp;
     }
 }
 //_____________________
@@ -62,13 +61,13 @@ Rational List::getRationalList()const
     return this->m_head->m_rational;
 }
 //________________
-void List::print()
+void List::print()const
 {
     for(Node* temp = this->m_head; temp!=nullptr; temp=temp->m_next)
     {
         std::cout<< temp->m_rational<< "x^" << temp->m_deg << " ";
     }
-    std::cout<< "\nend of polynomial\n";
+    std::cout << "\n";
 }
 //___________
 List::~List()
@@ -90,7 +89,6 @@ void List::copyList(const List& other)
 //_____________________
 void List::deleteList()
 {
-    std::cout << "deleteList called\n";
     Node* p1 = m_head, *p2;
     while(p1!=nullptr)
     {
@@ -102,8 +100,6 @@ void List::deleteList()
 //______________________________________
 List &List::operator=(const List& list1)
 {
-    std::cout << "operator= called\n";
-                                                        
     if ( &list1 != this )       // avoid self assignment
     {
         // prevents memory leak
@@ -111,5 +107,3 @@ List &List::operator=(const List& list1)
     }
     return *this;
 }
-
-

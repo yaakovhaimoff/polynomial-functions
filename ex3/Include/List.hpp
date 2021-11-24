@@ -7,13 +7,12 @@
 
 struct Node
 {
-    Node(const unsigned int, const Rational, Node*, Node*);
+    Node(const unsigned int, const Rational, Node*);
     
     // members of node
     unsigned int m_deg;
     Rational m_rational;
-    Node *m_next,
-    *m_prev;
+    Node *m_next;
 
 };
 
@@ -29,7 +28,7 @@ public:
     int getDeg()const;
     Node *getHeadList()const;
     Rational getRationalList()const;
-    void print();
+    void print()const;
     List &operator=(const List&);
     void copyList(const List& other);
     void deleteList();
