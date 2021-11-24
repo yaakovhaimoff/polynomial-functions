@@ -32,9 +32,7 @@ void List::insert(const unsigned int deg, const Rational rational)
 {
     Node *newNode = new Node(deg, rational, nullptr);
     
-    if(m_head==nullptr && rational.getNummerator()!=0)
-        m_head = newNode;
-    else if(m_head==nullptr)
+    if(m_head==nullptr)
         m_head = newNode;
     else if(rational.getNummerator()!=0)
     {

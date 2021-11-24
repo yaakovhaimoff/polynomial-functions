@@ -15,6 +15,8 @@ int main()
     Rational(5, 1), Rational(), Rational(17, 2)});;  // 5-element Poly
     Poly polylinum2(vector<Rational> {Rational(6, 1), Rational(2, 1), Rational(2, 1)});// 3-element Poly
     Poly polylinum_monomial(5, r1);//Monomial polynomial
+    auto x = Poly(7);
+    cout << x << endl;
 
     // print polylinum1 size and contents
     cout << "The high degree of polylinum1 is: "
