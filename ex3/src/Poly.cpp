@@ -49,11 +49,13 @@ Rational Poly::operator()(Rational& rational)const
     {
         //        counting each rational by it's degree
         count = rational;
-        for(int i=0; i< temp->m_deg; i++)
+        for(int i=1; i< temp->m_deg; i++)
         {
             count *= rational;
         }
-        valueOfpolynomial += count;
+        if(temp->m_deg==0)
+            count = Rational(1,1);
+        valueOfpolynomial = valueOfpolynomial + ((temp->m_rational*count));
     }
     return valueOfpolynomial;
 }
@@ -89,7 +91,7 @@ Poly operator+(const Poly& pol1, const Poly& pol2)
         //         and moving forward in the list
         if(temp1)
         {
-            newPol[size-temp1->m_deg-1] = temp1->m_rational;
+            newPol[size-temp1->m_deg-1] += temp1->m_rational;
             temp1=temp1->m_next;
         }
         if(temp2)
@@ -146,11 +148,11 @@ Poly operator*(const Poly& pol1, const Poly& pol2)
     {
         for(temp2 = pol2.getHeadPol(); temp2!=nullptr; temp2 = temp2->m_next)
         {
-//            if the cell is empty will assign it's new value
+            //            if the cell is empty will assign it's new value
             if(newPol[size -temp1->m_deg-temp2->m_deg-1].getNummerator()==0)
                 newPol[size -temp1->m_deg-temp2->m_deg-1] =
                 temp1->m_rational * temp2->m_rational;
-//            if wasn't empty will add to the value that was there
+            //            if wasn't empty will add to the value that was there
             else
                 newPol[size -temp1->m_deg-temp2->m_deg-1] =
                 newPol[size -temp1->m_deg-temp2->m_deg-1] +
