@@ -85,16 +85,18 @@ Poly operator+(const Poly& pol1, const Poly& pol2)
     //    to the new polynomial
     while(temp1 || temp2)
     {
-        //        add to the new polynomial
+        //        adding to the new polynomial
+        //         and moving forward in the list
         if(temp1)
+        {
             newPol[size-temp1->m_deg-1] = temp1->m_rational;
-        if(temp2)
-            newPol[size-temp2->m_deg-1] += temp2->m_rational;
-        //        move forward in list
-        if(temp1)
             temp1=temp1->m_next;
+        }
         if(temp2)
+        {
+            newPol[size-temp2->m_deg-1] += temp2->m_rational;
             temp2=temp2->m_next;
+        }
     }
     return Poly(newPol);
 }
