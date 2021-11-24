@@ -17,7 +17,7 @@ public:
     int getDegPol()const;
     Node *getHeadPol()const;
     Rational operator()(Rational&)const;
-    Rational operator[](int&)const;
+    Rational& operator[](const int)const;
     
     
 private:

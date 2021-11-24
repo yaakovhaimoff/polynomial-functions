@@ -40,7 +40,7 @@ Rational Poly::operator()(Rational& rational)const
     auto temp = m_polyHead.getHeadList();
     for(; temp; temp = temp->m_next)
     {
-        count = Rational(0,1);
+        count = rational;
         for(int i=0; i< temp->m_deg; i++)
         {
             count *= rational;
@@ -49,8 +49,8 @@ Rational Poly::operator()(Rational& rational)const
     }
     return point;
 }
-//________________________________________
-Rational Poly::operator[](int& index)const
+//______________________________________________
+Rational& Poly::operator[](const int index)const
 {
     auto point = Rational();
     auto temp = m_polyHead.getHeadList();

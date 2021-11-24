@@ -24,15 +24,15 @@ public:
     List(const unsigned int, const Rational);
     List(const List&);
     ~List();
-    void insert(const unsigned int, const Rational);
     void print()const;
-    void copyList(const List& other);
-    void deleteList();
     Node *getHeadList()const;
     List &operator=(const List&);
     
     
 private:
+    void insert(const unsigned int, const Rational);
+    void copyList(const List& other);
+    void deleteList();
     Node *m_head;
     
 };
