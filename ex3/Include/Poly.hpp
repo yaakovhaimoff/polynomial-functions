@@ -13,8 +13,8 @@ public:
     Poly();                             // default polynomial
     Poly(const int);                    // skalar polynomial
     Poly(const int, const Rational&);   // monomial polynomial
-    void printPoly()const;
     int getDegPol()const;
+    void printPoly()const;
     Node *getHeadPol()const;
     Rational operator()(Rational&)const;
     Rational& operator[](const int)const;
