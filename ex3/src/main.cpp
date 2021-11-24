@@ -40,7 +40,7 @@ void printl()
 void printp()
 {
 //    auto r1 = Rational (2,1);
-    auto r = Rational (3,4);
+    auto r = Rational (5,1);
 //    auto x = std::vector<Rational>{Rational(5,1), Rational(), Rational(3,-5),
 //        Rational(-3,-5), Rational(-3,5)};
 //    auto x2 = std::vector<Rational>{Rational(7,2), Rational(), Rational(7,2), Rational(), Rational(3,-5), Rational(3,-5), Rational(10,5)};
@@ -59,20 +59,26 @@ void printp()
 //    x1.printPoly();
     auto x = std::vector<Rational>{Rational(2,1), Rational(), Rational(),
         Rational(), Rational(1,1)};
-    auto x1 = std::vector<Rational>{Rational(3,1), Rational(4,1), Rational(5,1)};
-    auto x2 = std::vector<Rational>{Rational(3,1), Rational(4,1)};
+//    auto x1 = std::vector<Rational>{Rational(3,1), Rational(4,1), Rational(5,1),
+//        Rational(3,1), Rational(4,1)
+//    };
+//    auto x2 = std::vector<Rational>{Rational(-3,1), Rational(4,1), Rational(-4,1), Rational(4,1)};
     auto p = Poly(x);
-    auto p1 = Poly(x1);
-    auto p2 = Poly(8);
-    auto p3 = Poly(x2);
+//    auto p1 = Poly(x1);
+//    auto p2 = Poly(8);
+//    auto p3 = Poly(x2);
     cout << p;
-    cout << p1;
-//    p2 = p3 *p3;
-    cout << p2;
-    p3*=p3;
-    p3 = p3 + p3;;
-    cout << p3;
-    cout << p2 ;
-    cout << p2.getDegPol() << endl;
+//    cout << p1;
+//    cout << p3;
+    cout << r << endl;
+//    p2 = r*p3;
+//    cout << p2;
+//    p3*=p3;
+//    p3 = p3 + p3;;
+//    cout << p3;
+//    cout << p2 ;
+//    cout << p2.getDegPol() << endl;
+//    p == p1 ? cout << "true\n" : cout << "false\n";
+    cout << p(r) << endl;
    
 }

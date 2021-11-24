@@ -25,13 +25,11 @@ public:
     List(const List&);
     ~List();
     void insert(const unsigned int, const Rational);
-    int getDeg()const;
-    Node *getHeadList()const;
-    Rational getRationalList()const;
     void print()const;
-    List &operator=(const List&);
     void copyList(const List& other);
     void deleteList();
+    Node *getHeadList()const;
+    List &operator=(const List&);
     
     
 private:

@@ -45,26 +45,18 @@ void List::insert(const unsigned int deg, const Rational rational)
         temp->m_next = newNode;
     }
 }
-//_____________________
-int List::getDeg()const
-{
-    return this->m_head->m_deg;
-}
 //____________________________
 Node* List::getHeadList()const
 {
     return this->m_head;
 }
-//___________________________________
-Rational List::getRationalList()const
-{
-    return this->m_head->m_rational;
-}
-//________________
+//_____________________
 void List::print()const
 {
     for(Node* temp = this->m_head; temp!=nullptr; temp=temp->m_next)
     {
+        if(temp->m_rational.getNummerator() > 0 && temp!=m_head)
+            std::cout<< " + ";
         std::cout<< temp->m_rational<< "x^" << temp->m_deg << " ";
     }
     std::cout << "\n";
