@@ -66,8 +66,8 @@
 		75F0902B2744F3FB00E0890E /* ex3 */ = {
 			isa = PBXGroup;
 			children = (
-				75F0903A274507E700E0890E /* src */,
 				75F09039274507D400E0890E /* Include */,
+				75F0903A274507E700E0890E /* src */,
 			);
 			path = ex3;
 			sourceTree = "<group>";
