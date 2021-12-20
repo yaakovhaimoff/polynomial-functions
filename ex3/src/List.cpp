@@ -30,20 +30,18 @@ List::List(const List &other)
 //________________________________________________________________
 void List::insert(const unsigned int deg, const Rational rational)
 {
-    Node *newNode = new Node(deg, rational, nullptr);
-    
-    if(m_head==nullptr && rational.getNumerator()!=0)
-        m_head = newNode;
-    else if(m_head==nullptr)
-        m_head = newNode;
-    else if(rational.getNumerator()!=0)
-    {
-        Node* temp = m_head;
-        while(temp->m_next!=nullptr)
-            temp = temp->m_next;
-        
-        temp->m_next = newNode;
-    }
+    Node* newNode = new Node(deg, rational, nullptr);
+
+        if (m_head == nullptr)
+            m_head = newNode;
+        else if (rational.getNumerator() != 0)
+        {
+            Node* temp = m_head;
+            while (temp->m_next != nullptr)
+                temp = temp->m_next;
+
+            temp->m_next = newNode;
+        }
 }
 //____________________________
 Node* List::getHeadList()const
