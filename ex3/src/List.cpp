@@ -32,11 +32,11 @@ void List::insert(const unsigned int deg, const Rational rational)
 {
     Node *newNode = new Node(deg, rational, nullptr);
     
-    if(m_head==nullptr && rational.getNummerator()!=0)
+    if(m_head==nullptr && rational.getNumerator()!=0)
         m_head = newNode;
     else if(m_head==nullptr)
         m_head = newNode;
-    else if(rational.getNummerator()!=0)
+    else if(rational.getNumerator()!=0)
     {
         Node* temp = m_head;
         while(temp->m_next!=nullptr)
@@ -55,7 +55,7 @@ void List::print()const
 {
     for(Node* temp = this->m_head; temp!=nullptr; temp=temp->m_next)
     {
-        if(temp->m_rational.getNummerator() > 0 && temp!=m_head)
+        if(temp->m_rational.getNumerator() > 0 && temp!=m_head)
             std::cout<< " + ";
         std::cout<< temp->m_rational<< "x^" << temp->m_deg << " ";
     }

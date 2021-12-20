@@ -8,11 +8,11 @@
 struct Node
 {
     Node(const unsigned int, const Rational, Node*);
-    
+
     // members of node
     unsigned int m_deg;
     Rational m_rational;
-    Node *m_next;
+    Node* m_next;
 
 };
 
@@ -25,14 +25,14 @@ public:
     List(const List&);
     ~List();
     void print()const;
-    Node *getHeadList()const;
-    List &operator=(const List&);
-    
-    
+    Node* getHeadList()const;
+    List& operator=(const List&);
+
+
 private:
     void insert(const unsigned int, const Rational);
     void copyList(const List& other);
     void deleteList();
-    Node *m_head;
-    
+    Node* m_head;
+
 };

@@ -1,9 +1,7 @@
 #pragma once
 
-#include <stdio.h>
 #include <vector>
 #include <algorithm>    // max, min
-#include "Rational.hpp"
 #include "List.hpp"
 
 class Poly
@@ -13,27 +11,32 @@ public:
     Poly();                             // default polynomial
     Poly(const int);                    // skalar polynomial
     Poly(const int, const Rational&);   // monomial polynomial
-    int getDegPol()const;
+    int deg()const;
     void printPoly()const;
-    Node *getHeadPol()const;
-    Rational operator()(Rational&)const;
-    Rational& operator[](const int)const;
-    
-    
+    const Node* getHeadPol()const;
+    Rational operator()(const Rational&)const;
+    Rational operator[](const int)const;
+
+
 private:
     List m_polyHead;
 };
 
 Poly operator+(const Poly&, const Poly&);
 Poly operator-(const Poly&, const Poly&);
-Poly operator-(const Poly&);
-Poly &operator+=(Poly&, Poly&);
-Poly operator-=(Poly&, Poly&);
-Poly operator*(const Poly&, const Poly&);
-Poly operator*(Poly&, Rational&);
-Poly operator*(Rational&, Poly&);
-Poly operator*=(Poly&, Poly&);
-bool operator==(Poly&, Poly&);
-bool operator!=(Poly&, Poly&);
 
-ostream &operator<<(ostream&, const Poly&);
+Poly operator-(const Poly&);
+
+Poly operator*(const Poly&, const Poly&);
+Poly operator*(const Poly&, const Rational&);
+Poly operator*(const Rational&, const Poly&);
+
+Poly& operator+=(Poly&, const Poly&);
+Poly& operator-=(Poly&, const Poly&);
+Poly& operator*=(Poly&, const Poly&);
+
+bool operator==(const Poly&, const Poly&);
+bool operator!=(const Poly&, const Poly&);
+
+ostream& operator<<(std::ostream&, const Poly&);
+
