@@ -11,9 +11,9 @@ Poly::Poly()
     : m_polyHead(0, Rational(0, 1))
 {}
 // polynomial constructer made from a skalar
-//____________________
-Poly::Poly(const int skalar)
-    : m_polyHead(0, Rational(skalar, 1))
+//_______________________________
+Poly::Poly(const Rational skalar)
+    : m_polyHead(0, skalar)
 {}
 // polynomial constructer made from a degree and rational number
 //____________________________________
@@ -88,7 +88,7 @@ Poly operator+(const Poly& pol1, const Poly& pol2)
     //    to the new polynomial
     while (temp1 || temp2)
     {
-        //        adding to the new polynomial
+        //          adding to the new polynomial
         //         and moving forward in the list
         if (temp1)
         {

@@ -9,7 +9,7 @@ class Poly
 public:
     Poly(const std::vector<Rational>&); // regular polynomial
     Poly();                             // default polynomial
-    Poly(const int);                    // skalar polynomial
+    Poly(const Rational);                    // skalar polynomial
     Poly(const int, const Rational&);   // monomial polynomial
     int deg()const;
     void printPoly()const;

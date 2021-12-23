@@ -70,8 +70,7 @@ int main()
     auto p3 = Poly(co3);
     auto p4 = p1 - p2; //copy ctor => 18x^1
     auto p5 = Poly(co4);
-
-
+    
     printTest(p3.deg() == p4.deg()); //TEST 12
     printTest((p3 += p4)[0] == 20);  // TEST 13 - 20x +2
     printTest((p2 *= p2).deg() == 6); //TEST 14
